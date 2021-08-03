@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block style %}
+    <link href="{% static 'css/account.css' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block headtitle %}{% trans "Register Patient" %}{% endblock %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+
+    <div class="row isi">
+        <div class="account_form">
+            <h1>{% trans "Register Patient" %}</h1>
+            <form class="signup" method="post" action="">
+                {% csrf_token %}
+                {{ form|crispy }}
+                {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{% url 'patient:patientdata_list' %}" />
+                {% endif %}
+                <button type="submit" class="btn btn-primary btn_account">{% trans "Register" %}</button>
+            </form>
+            <p>
+                {% trans "Back to" %} <a href="{% url 'accounts:signup_view' %}">{% trans "Register" %}</a> {% trans "options" %}.
+            </p>
+        </div>
+
+    </div>
+
+    {% else %}
+
+    <div class="row isi">
+        <div class="col-sm-2 col-md-2 col-lg-2">
+        </div>
+    </div>
+
+    {% endif %}
+
+
+{% endblock %}

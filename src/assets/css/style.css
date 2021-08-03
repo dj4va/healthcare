@@ -1,0 +1,62 @@
+html, body {
+  background-color: #fff !important;
+/*  background-color: #f7f9fb !important; */
+}
+
+.row {
+  background-color: #fff;
+}
+
+.isi {
+/*  height: 810px; */
+  height: auto;
+}
+
+.footer {
+  height: 151px;
+}
+
+.navigation {
+  height: 205px;
+}
+
+.footer {
+  height: 151px;
+  padding-top: 20px;
+}
+
+.logotenant {
+  width: 60px;
+  height: 60px;
+}
+
+.text-title {
+  color: rgba(0,0,0,.5);
+}
+
+.text-title:hover {
+  color: #000;
+  text-decoration: none;
+}
+
+.text-title a:hover {
+  text-decoration: none;
+  color: #000;
+}
+
+img.logo > img, img.logo > svg {
+  height: 229px;
+  width: 314px;
+  box-shadow: none;
+}
+
+img.pull-left a:hover, .pull-left a:hover, a.logo_link a:hover {
+  text-decoration: none;
+
+}
+
+.flag.flag-16 {
+  background-image: url("/static/images/sprite-flags-16x16.png");
+  background: url("/static/images/sprite-flags-16x16.png");
+  margin: auto 5px auto auto;
+}

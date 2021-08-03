@@ -1,0 +1,36 @@
+.detail {
+  border: 1px solid #ddd;
+  padding: 10px 0px;
+  margin: 0px 0px 15px 0px;
+}
+.staff_detail {
+	margin: 0 0 10px;
+	padding: 10px 0px;
+	width: 540px;
+/*	background-color: #dee7ef; */
+}
+.link_detail {
+  margin-bottom: 5px;
+  width: max-content;
+}
+
+.link_detail a {
+  text-align: left;
+}
+
+@media (min-width: 576px)
+.modal-dialog {
+    max-width: 500px;
+    margin: 1.75rem auto;
+}
+
+.title {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 18px;
+  margin: 0 auto 10px auto;
+}
+
+.addstaff {
+  margin: -5px auto 5px auto;
+}

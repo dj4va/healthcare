@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+
+{% block headtitle %}
+    {{ page_title }} | {{ titles.title }}
+{% endblock %}
+
+{% block style %}
+    <link href="{% static 'css/patient/patient.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/patient/maintenance.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block javascript %}
+    <script src="{% static 'js/jquery.formset.js' %}"></script>
+{% endblock %}
+
+{% block extrahead %}
+    {{ formset.media }}
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <div class="row formtitle">
+        {{ page_title }}
+    </div>
+
+    <p style="font-size:12px">{% include 'messages.html' %}</p>
+
+    {% include 'patient/patient_formset.html' %}
+
+    <form method="post">
+    {% csrf_token %}
+
+        <div class="row rounded form_table">
+
+            {{ formset.management_form }}
+            <table id="form_set" class="table table-bordered">
+                <thead class="thead_light">
+                    <tr>
+                        <th class="text-center">{% trans "Date" %}</th>
+                        <th class="text-center">{% trans "Items" %}</th>
+                        <th class="text-center">{% trans "Location/Room" %}</th>
+                        <th class="text-center">{% trans "Reported by:" %}</th>
+                        <th class="text-center">{% trans "Status" %}</th>
+                        <th class="text-center">{% trans "Action" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in formset.forms %}
+                    <tr id="{{ item.prefix }}-row">
+                        <td>{{ item.date|as_crispy_field }}</td>
+                        <td>{{ item.items|as_crispy_field }}</td>
+                        <td>{{ item.location_room|as_crispy_field }}</td>
+                        <td>{{ item.reported_by|as_crispy_field }}</td>
+                        <td>{{ item.status|as_crispy_field }}</td>
+                        <td></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="row">
+
+            {% for item in profiles %}
+            <a class="btn btn-danger kirim" href="{% url 'patient:patientdata_detail' item.username %}">{% trans "Cancel" %}</a>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">{% trans "Submit" %}</button>
+
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}
+
+{% block jscript %}
+<script type='text/javascript'>
+$(document).ready(function()
+{
+
+    $('#form_set tbody tr').formset(
+    {
+//      prefix: 'formset',
+//      prefix: '{{ formset.prefix }}',
+        addCssClass: 'btn btn-success',
+        addText: '<i class="fas fa-plus"></i>',
+        deleteCssClass: 'btn btn-danger',
+        deleteText: '<i class="fas fa-minus"></i>',
+        keepFieldValues: '#id_form-0-date, #id_form-0-time, #id_form-0-status, #id_form-0-reported_by',
+//      addContainerClass: 'tambah_row',
+        added: function(row)
+        {
+            $(row).find('[id$="-date"]').removeClass('datepickerinput').removeData('DateTimePicker')
+        .unbind().datetimepicker(
+            options={
+                "format": "DD-MM-YYYY",
+                // 'data-target':""
+            });
+
+            // $(row).find('[id$="date"]').each(function (i, value)
+            // {
+            //     $(value).datetimepicker({
+            //         timepicker: false,
+            //         format: 'DD-MM-YYYY',
+            //         scrollInput: false,
+            //         dayOfWeekStart: 1
+            //     }
+            // );
+
+        //     $(row).find('[id$="time"]').removeClass('timepickerinput').removeAttr('#id_form-0-time').removeData('DateTimePicker')
+        // .unbind().datetimepicker(
+        //     options={
+        //         "format": "HH:mm",
+        //     });
+        },
+    });
+});
+
+</script>
+{% endblock %}

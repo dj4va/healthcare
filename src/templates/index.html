@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% load account %}
+{% load static %}
+{% load i18n %}
+
+{% block style %}
+    <link href="{% static 'css/account.css' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="col-12">
+
+        <div class="messageform">
+            {% include 'messages.html' %}
+        </div>
+
+        <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+            <h1 class="display-4">{% trans "Healthcare Multi Tenant" %}</h1>
+            <p class="lead">{% trans "It's built with default Bootstrap components and utilities with little customization." %}</p>
+
+            {% if user.is_authenticated %}
+
+            {% else %}
+
+            {% trans "Already have an account? Then please" %} <a href="{% url 'accounts:login_view' %}">{% trans "Login." %}</a>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

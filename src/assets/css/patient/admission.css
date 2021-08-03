@@ -1,0 +1,133 @@
+.isi {
+  height: auto;
+  padding-bottom: 20px;
+}
+
+.footer {
+  height: 151px;
+}
+
+.kolom {
+  column-count: 2;
+  column-gap: 2rem;
+  list-style: none;
+}
+.dateku{
+  margin-left: -60px;
+}
+
+#div_id_age {
+  display: inline-flex;
+  margin-left: -10px;
+  margin-right: -80px;
+}
+.modeku {
+  display: inline-flex;
+}
+
+#id_ic_number, #id_birth_date, #id_marital_status, #id_phone, #id_religion, #id_ec_ic_number, #id_ec_relationship, #id_ec_phone, #id_date_discharge {
+    width: initial;
+}
+
+#div_id_ic_number > div > span {
+    width: 50% !important;
+}
+
+#div_id_full_name > div > span {
+  width: 200px;
+}
+
+#hint_id_full_name {
+  padding-top: 5px;
+}
+
+#div_id_spo2, #div_id_temperature {
+  width: 90%;
+}
+
+#div_id_medication label {
+  margin-right: 5px;
+}
+
+.custom-control-label {
+  margin-right: 10px;
+}
+
+.custom-control {
+  display: inline-flex;
+}
+
+.delete-row {
+  align-self: center;
+}
+
+.form-row1 {
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+}
+
+.hapus_Emerg, .hapus_Diag, .hapus_Opr, .hapus_Own {
+  border-right: 1px solid #c9c9c9;
+  border-bottom: 1px solid #c9c9c9;
+}
+
+.tambah_Emerg, .tambah_Diag, .tambah_Opr, .tambah_Diag {
+  margin: auto -15px;
+  padding: 10px 10px 10px 95%;
+  border-left: 1px solid #c9c9c9;
+  border-right: 1px solid #c9c9c9;
+}
+
+.tambah_Own {
+  margin: auto -15px;
+  padding: 10px 10px 10px 95%;
+  border-top: 1px solid #c9c9c9;
+  border-left: 1px solid #c9c9c9;
+  border-right: 1px solid #c9c9c9;
+}
+
+#div_id_form-0-ic_number, #div_id_form-0-ic_upload, #div_id_patient_form-ic_number, #div_id_patient_form-ic_upload {
+  font-weight: normal;
+}
+
+.admissionform .col {
+  border: 1px solid #c9c9c9;
+  padding-top: 12px;
+  padding-bottom: 10px;
+}
+
+.admissionform .col:not(:last-child) {
+  border-right-width: 0;
+}
+
+.admissionform .row:not(:last-child) .col {
+  border-bottom-width: 0;
+}
+
+.admissionform {
+  padding: 15px !important;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.disabled_input {
+  pointer-events: none;
+  background-color: #e9ecef;
+  opacity: 1;
+}
+
+#id_patientprofile_form-date_joined {
+  display: none;
+}
+
+.image_ic_upload, .image_ec_ic_upload {
+  width: 80px;
+  height: 80px;
+}
+
+#div_id_patientprofile_form-date_joined, #div_id_allergy_form-medication_date {
+  display: none;
+}

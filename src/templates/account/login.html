@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load i18n %}
+{% load account %}
+{% load crispy_forms_tags %}
+
+{% block style %}
+    <link href="{% static 'css/account.css' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block headtitle %}{% trans "Login" %}{% endblock %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+
+    <div class="row isi">
+        <div class="col-sm-2 col-md-2 col-lg-2">
+        </div>
+    </div>
+
+    {% else %}
+
+    <div class="row isi">
+
+        <div class="account_form">
+            <h2 class="text-center">{% trans "Login" %}</h2>
+            <form class="login" method="post" action="{% url 'account_login' %}">
+                {% csrf_token %}
+                {{ form|crispy }}
+                {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                {% endif %}
+                <button type="submit" class="btn btn-primary btn_account">{% trans "Login" %}</button>
+            </form>
+            <p>
+                {% trans "Need new account? Please " %} <a href="#">{% trans "contact" %}</a> {% trans " our staff" %}
+            </p>
+        </div>
+
+    </div>
+
+    {% endif %}
+
+{% endblock %}

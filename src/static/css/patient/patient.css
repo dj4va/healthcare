@@ -1,0 +1,48 @@
+.detail_form {
+	padding: 10px 0px;
+	width: 540px;
+/*	background-color: #dee7ef; */
+}
+.detail_data {
+	padding: 10px 0px;
+	width: 540px;
+/*	background-color: #dee7ef; */
+	margin-left: 0px;
+}
+.thead_light {
+	background-color: #eff3f7;
+}
+.detail_med {
+	padding: 10px 0px;
+	width: 100%;
+}
+.detail_table {
+	padding: 10px 0px;
+	width: auto;
+}
+.patient_detail {
+	margin: 0 0 10px;
+	padding: 10px 0px;
+	width: 540px;
+/*	background-color: #dee7ef; */
+}
+.form_table {
+	padding-top: 10px;
+}
+.link_detail {
+	margin-bottom: 5px;
+	width: max-content;
+}
+
+.link_detail a {
+	text-align: left;
+}
+
+@media (min-width: 576px)
+.modal-dialog {
+	max-width: 1500px;
+	margin: 1.75rem auto;
+}
+.kirim {
+	margin: 0 5px;
+}
